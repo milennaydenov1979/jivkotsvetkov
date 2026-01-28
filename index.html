@@ -29,7 +29,7 @@
     .container{max-width:1120px;margin:0 auto;padding:0 18px}
     header{
       position:sticky;top:0;z-index:10;
-      background:rgba(245,247,250,.85);
+      background:rgba(245,247,250,.92);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
@@ -50,9 +50,11 @@
     }
     .brandTitle{font-weight:900;letter-spacing:.2px;line-height:1}
     .brandSub{font-size:12px;color:var(--muted);font-weight:800;margin-top:3px}
+
     nav{display:flex;gap:14px;flex-wrap:wrap}
     nav a{font-size:14px;color:var(--muted);font-weight:800;text-decoration:none}
     nav a:hover{text-decoration:underline}
+
     .btnRow{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
@@ -69,16 +71,16 @@
     }
     .btnPrimary:hover{filter:brightness(1.03)}
     .btnGhost{background:transparent;box-shadow:none}
+
     .pill{
       display:inline-flex;gap:8px;align-items:center;
       padding:8px 12px;border-radius:999px;
       border:1px solid var(--line);
-      background: #fff;
+      background:#fff;
       color:var(--muted);
       font-weight:900;font-size:13px;
     }
 
-    /* HERO */
     .hero{padding:26px 0 20px}
     .grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:16px;align-items:stretch}
     @media (max-width: 920px){.grid{grid-template-columns:1fr}.btnRow{justify-content:flex-start}}
@@ -92,31 +94,21 @@
     h1{margin:10px 0 10px;font-size:42px;line-height:1.06;letter-spacing:-.8px}
     @media (max-width: 520px){h1{font-size:34px}}
     .sub{margin:0;color:var(--muted);font-size:16px;line-height:1.6;max-width:70ch}
+
     .heroCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
     @media (max-width: 520px){.bullets{grid-template-columns:1fr}}
-    .bullet{
-      border:1px solid var(--line);border-radius:16px;padding:12px;
-      background: #fff;
-    }
+    .bullet{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff;}
     .bullet b{display:block;font-size:14px}
     .bullet span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:13px;line-height:1.45}
 
     .heroRight{padding:16px;display:flex;flex-direction:column;gap:12px}
-    .imgBox{
-      border:1px solid var(--line);
-      border-radius:16px;
-      overflow:hidden;
-      background:#fff;
-      min-height:220px;
-    }
+    .imgBox{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;min-height:220px}
     .imgBox img{width:100%;height:100%;object-fit:cover;display:block}
+
     .sideTitle{font-weight:1000;font-size:16px;margin:0}
     .sideList{display:grid;gap:10px}
-    .sideItem{
-      border:1px solid var(--line);
-      border-radius:16px;padding:12px;background:#fff;
-    }
+    .sideItem{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff}
     .sideItem b{display:block}
     .sideItem span{color:var(--muted);font-weight:800}
 
@@ -136,7 +128,6 @@
     .sectionTitle{font-size:26px;letter-spacing:-.4px;margin:0 0 10px}
     .sectionLead{margin:0 0 14px;color:var(--muted);font-weight:800;line-height:1.6;max-width:78ch}
 
-    /* Packages */
     .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media (max-width: 920px){.packages{grid-template-columns:1fr}}
     .pkg{padding:16px;position:relative}
@@ -146,14 +137,13 @@
       padding:6px 10px;border-radius:999px;
       background: rgba(37,99,235,.10);
       border:1px solid rgba(37,99,235,.20);
-      color: #1D4ED8;
+      color:#1D4ED8;
     }
     .pkg h3{margin:0 0 6px}
     .pkg p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
     .pkg ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-weight:800;line-height:1.7}
     .pkg .hint{margin-top:10px;color:var(--muted);font-weight:1000}
 
-    /* Process */
     .process{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     @media (max-width: 920px){.process{grid-template-columns:1fr}}
     .step{padding:16px}
@@ -167,23 +157,9 @@
     .step h3{margin:0 0 6px}
     .step p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
 
-    /* Warranty */
     .warranty{padding:16px;border-left:4px solid var(--green)}
     .warranty h3{margin:0 0 6px}
     .warranty p{margin:0;color:var(--muted);font-weight:800;line-height:1.65}
-
-    /* Contact form */
-    .formWrap{padding:16px}
-    form{display:grid;gap:10px}
-    .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    @media (max-width: 520px){.row2{grid-template-columns:1fr}}
-    label{font-size:13px;color:var(--muted);font-weight:1000}
-    input,textarea{
-      width:100%;padding:12px;border-radius:14px;border:1px solid var(--line);
-      background:#fff;color:var(--text);font-size:15px;outline:none;
-    }
-    textarea{min-height:96px;resize:vertical}
-    .fine{color:var(--muted);font-size:12px;font-weight:900;line-height:1.5}
 
     footer{border-top:1px solid var(--line);padding:18px 0 26px;color:var(--muted);font-weight:900}
     .footGrid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -239,7 +215,7 @@
         <div class="bullets">
           <div class="bullet"><b>Оферта до 24 ч.</b><span>След реално измерване</span></div>
           <div class="bullet"><b>Чист монтаж</b><span>Демонтаж, монтаж, реглаж</span></div>
-          <div class="bullet"><b>Фокус апартаменти</b><span>Решения за шум и студ</span></div>
+          <div class="bullet"><b>Комфорт</b><span>Решения за шум и студ</span></div>
           <div class="bullet"><b>Гаранция</b><span>Писмена и реална</span></div>
         </div>
       </div>
@@ -332,20 +308,12 @@
   <section id="kontakt">
     <div class="container">
       <h2 class="sectionTitle">Контакт</h2>
-      <div class="card formWrap">
-        <form>
-          <div class="row2">
-            <div><label>Име</label><input placeholder="Име"></div>
-            <div><label>Телефон</label><input placeholder="+359..."></div>
-          </div>
-          <label>Съобщение</label>
-          <textarea placeholder="Кратко описание"></textarea>
-          <div class="heroCtas">
-            <a class="btn" href="tel:+359888775141">Обади се</a>
-            <button class="btn btnPrimary" type="button">Изпрати</button>
-          </div>
-          <div class="fine">Тел: +359 888 775 141 • Имейл: jvc70@abv.bg</div>
-        </form>
+      <p class="sectionLead">
+        Телефон: <a href="tel:+359888775141"><b>+359 888 775 141</b></a> •
+        Имейл: <a href="mailto:jvc70@abv.bg"><b>jvc70@abv.bg</b></a>
+      </p>
+      <div class="card" style="padding:16px">
+        <b>Най-бързо:</b> натисни “Обади се” и уговори час за безплатно измерване.
       </div>
     </div>
   </section>
@@ -355,8 +323,10 @@
   <div class="container">
     <div class="footGrid">
       <div><b>SILENTHAUS</b><br/>PVC дограма без компромиси</div>
-      <div>Тел: <a href="tel:+359888775141">+359 888 775 141</a><br/>
-           Имейл: <a href="mailto:jvc70@abv.bg">jvc70@abv.bg</a></div>
+      <div>
+        Тел: <a href="tel:+359888775141">+359 888 775 141</a><br/>
+        Имейл: <a href="mailto:jvc70@abv.bg">jvc70@abv.bg</a>
+      </div>
     </div>
     <div style="margin-top:10px;font-size:12px">© <span id="y"></span> SILENTHAUS</div>
   </div>
