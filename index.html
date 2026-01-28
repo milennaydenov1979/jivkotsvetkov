@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="bg">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="SILENTHAUS – PVC дограма без компромиси. Подмяна на дограма в София и област. Професионален монтаж, оферта до 24 часа, писмена гаранция." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="SILENTHAUS – PVC дограма без компромиси. Подмяна на дограма в София и област. Професионален монтаж, оферта до 24 часа, писмена гаранция.">
   <title>SILENTHAUS | PVC дограма без компромиси – София</title>
 
   <style>
@@ -39,7 +39,6 @@
       display:flex;align-items:center;justify-content:space-between;
       gap:12px;padding:12px 0;
     }
-
     .brand{display:flex;align-items:center;gap:10px;min-width:220px}
     .mark{
       width:38px;height:38px;border-radius:14px;
@@ -119,59 +118,9 @@
     .imgBox{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;min-height:220px}
     .imgBox img{width:100%;height:100%;object-fit:cover;display:block}
 
-    .sideTitle{font-weight:1000;font-size:16px;margin:0}
-    .sideList{display:grid;gap:10px}
-    .sideItem{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff}
-    .sideItem b{display:block}
-    .sideItem span{color:var(--muted);font-weight:800}
-
-    .alert{
-      border:1px solid rgba(22,163,74,.25);
-      background: rgba(22,163,74,.06);
-      border-radius:16px;
-      padding:12px;
-      color: var(--muted);
-      font-weight:900;
-      line-height:1.45;
-    }
-    .alert b{color:var(--text)}
-    .alert .dot{color:var(--green);margin-right:6px}
-
     section{padding:18px 0}
     .sectionTitle{font-size:26px;letter-spacing:-.4px;margin:0 0 10px}
     .sectionLead{margin:0 0 14px;color:var(--muted);font-weight:800;line-height:1.6;max-width:78ch}
-
-    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .pkg{padding:16px;position:relative}
-    .badge{
-      position:absolute;top:14px;right:14px;
-      font-size:12px;font-weight:1000;
-      padding:6px 10px;border-radius:999px;
-      background: rgba(37,99,235,.10);
-      border:1px solid rgba(37,99,235,.20);
-      color:#1D4ED8;
-      max-width: 120px;
-      text-align:center;
-    }
-    .pkg h3{margin:0 0 6px}
-    .pkg p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
-    .pkg ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-weight:800;line-height:1.7}
-
-    .process{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .step{padding:16px}
-    .num{
-      width:36px;height:36px;border-radius:14px;
-      display:inline-flex;align-items:center;justify-content:center;
-      background: rgba(37,99,235,.10);
-      border:1px solid rgba(37,99,235,.20);
-      color:#1D4ED8;font-weight:1000;margin-bottom:10px;
-    }
-    .step h3{margin:0 0 6px}
-    .step p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
-
-    .warranty{padding:16px;border-left:4px solid var(--green)}
-    .warranty h3{margin:0 0 6px}
-    .warranty p{margin:0;color:var(--muted);font-weight:800;line-height:1.65}
 
     /* FORM */
     .formWrap{padding:16px}
@@ -185,10 +134,7 @@
     textarea{min-height:92px;resize:vertical}
     .fine{color:var(--muted);font-size:12px;font-weight:900;line-height:1.5}
 
-    footer{border-top:1px solid var(--line);padding:18px 0 26px;color:var(--muted);font-weight:900}
-    .footGrid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-
-    /* MOBILE OPTIMIZATION + MENU VERTICAL */
+    /* MOBILE OPTIMIZATION */
     @media (max-width: 920px){
       .topbar{flex-direction:column;align-items:stretch}
       .brand{justify-content:flex-start}
@@ -196,15 +142,9 @@
       .grid{grid-template-columns:1fr}
     }
 
-    /* ТУК Е ВАЖНОТО: менюто става едно под друго на мобилен */
+    /* MOBILE MENU VERTICAL */
     @media (max-width: 520px){
       .container{padding:0 14px}
-      h1{font-size:32px}
-      .heroLeft{padding:16px}
-      .heroRight{padding:14px}
-      .bullets{grid-template-columns:1fr}
-      .row2{grid-template-columns:1fr}
-
       nav{
         flex-direction:column;
         align-items:stretch;
@@ -214,20 +154,18 @@
       nav a{
         display:block;
         width:100%;
-        padding:12px 12px;
+        padding:12px;
         border:1px solid var(--line);
         border-radius:14px;
         background:#fff;
-        font-size:14px;
       }
-
-      /* CTA бутоните под hero и във формата да са на 100% ширина */
       .heroCtas .btn{width:100%}
     }
   </style>
 </head>
 
 <body>
+
 <header>
   <div class="container">
     <div class="topbar">
@@ -255,6 +193,8 @@
 </header>
 
 <main>
+
+  <!-- Hero + Intro -->
   <div class="container hero">
     <div class="grid">
       <div class="card heroLeft">
@@ -263,218 +203,9 @@
         <span class="pill">✅ Писмена гаранция</span>
 
         <h1>PVC дограма без компромиси</h1>
-        <p class="sub">
-          За хора, които искат <b>тишина</b>, <b>топлина</b> и <b>сигурен монтаж</b>.
-          Работим професионално, без бързане и без „на око“.
-        </p>
+        <p class="sub">За хора, които искат <b>тишина</b>, <b>топлина</b> и <b>сигурен монтаж</b>. Работим професионално, без бързане и без „на око“.</p>
 
         <div class="heroCtas">
           <a class="btn btnPrimary" href="#kontakt">Вземи безплатно измерване</a>
           <a class="btn" href="tel:+359888775141">Обади се сега</a>
         </div>
-
-        <div class="bullets">
-          <div class="bullet"><b>Оферта до 24 ч.</b><span>След реално измерване</span></div>
-          <div class="bullet"><b>Чист монтаж</b><span>Демонтаж, монтаж, реглаж</span></div>
-          <div class="bullet"><b>Комфорт</b><span>Решения за шум и студ</span></div>
-          <div class="bullet"><b>Гаранция</b><span>Писмена и реална</span></div>
-        </div>
-      </div>
-
-      <aside class="card heroRight">
-        <div class="imgBox">
-          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Модерен апартамент с PVC дограма">
-        </div>
-
-        <p class="sideTitle">За кого е услугата</p>
-        <div class="sideList">
-          <div class="sideItem"><b>Ремонт / реновация</b><span>Когато искаш качество</span></div>
-          <div class="sideItem"><b>Нов апартамент</b><span>Подмяна с гаранция</span></div>
-          <div class="sideItem"><b>Шумни райони</b><span>По-добра шумоизолация</span></div>
-        </div>
-
-        <div class="alert">
-          <span class="dot">●</span><b>Работим качествено.</b><br/>
-          Ако търсиш най-евтиното — не сме правилният избор.
-        </div>
-      </aside>
-    </div>
-  </div>
-
-  <section id="paketi">
-    <div class="container">
-      <h2 class="sectionTitle">Пакети</h2>
-      <p class="sectionLead">Избираш нивото на комфорт — качеството остава.</p>
-
-      <div class="packages">
-        <div class="card pkg">
-          <h3>STANDARD</h3>
-          <p>Балансирано решение.</p>
-          <ul>
-            <li>Двоен стъклопакет</li>
-            <li>Качествен PVC профил</li>
-            <li>Стандартен обков</li>
-          </ul>
-        </div>
-
-        <div class="card pkg">
-          <div class="badge">Най-избиран</div>
-          <h3>COMFORT</h3>
-          <p>По-добра шумо и топлоизолация.</p>
-          <ul>
-            <li>Подобрен стъклопакет</li>
-            <li>По-висок клас обков</li>
-            <li>По-добри уплътнения</li>
-          </ul>
-        </div>
-
-        <div class="card pkg">
-          <h3>PREMIUM</h3>
-          <p>Максимален комфорт.</p>
-          <ul>
-            <li>Троен стъклопакет</li>
-            <li>Усилени решения</li>
-            <li>Удължена гаранция</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="proces">
-    <div class="container">
-      <h2 class="sectionTitle">Процес</h2>
-      <div class="process">
-        <div class="card step"><div class="num">1</div><h3>Измерване</h3><p>Безплатно и точно</p></div>
-        <div class="card step"><div class="num">2</div><h3>Оферта</h3><p>До 24 часа</p></div>
-        <div class="card step"><div class="num">3</div><h3>Производство</h3><p>По размер</p></div>
-        <div class="card step"><div class="num">4</div><h3>Монтаж</h3><p>Чисто и професионално</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="garancia">
-    <div class="container">
-      <h2 class="sectionTitle">Гаранция</h2>
-      <div class="card warranty">
-        <h3>Гаранция, зад която заставаме</h3>
-        <p>
-          Писмена гаранция за изработка и монтаж.
-          Ако нещо не е наред — коригираме го без спорове.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORM (Formspree) -->
-  <section id="kontakt">
-    <div class="container">
-      <h2 class="sectionTitle">Безплатно измерване</h2>
-      <p class="sectionLead">
-        Остави контакт и ще ти върнем обаждане за час.
-        Ако бързаш — звънни директно: <a href="tel:+359888775141"><b>+359 888 775 141</b></a>
-      </p>
-
-      <div class="card formWrap">
-        <form id="leadForm"
-              action="https://formspree.io/f/REPLACE_ME"
-              method="POST">
-          <input type="hidden" name="_subject" value="Ново запитване: Безплатно измерване – SILENTHAUS">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-
-          <div class="row2">
-            <div>
-              <label for="name">Име и фамилия</label>
-              <input id="name" name="name" placeholder="Напр. Иван Петров" required />
-            </div>
-            <div>
-              <label for="phone">Телефон</label>
-              <input id="phone" name="phone" placeholder="Напр. 0888 775 141" required />
-            </div>
-          </div>
-
-          <div class="row2">
-            <div>
-              <label for="email">Имейл</label>
-              <input id="email" name="email" type="email" placeholder="Напр. client@email.com" required />
-            </div>
-            <div>
-              <label for="area">Квартал / населено място (по желание)</label>
-              <input id="area" name="area" placeholder="Напр. Младост / Люлин / Божурище" />
-            </div>
-          </div>
-
-          <div>
-            <label for="note">Бележка (по желание)</label>
-            <textarea id="note" name="note" placeholder="Шум, конденз, срокове, брой прозорци..."></textarea>
-          </div>
-
-          <div class="heroCtas">
-            <a class="btn" href="tel:+359888775141">Обади се</a>
-            <button class="btn btnPrimary" type="submit">Изпрати</button>
-          </div>
-
-          <p id="formMsg" style="display:none;margin:0;color:var(--green);font-weight:900">
-            Благодарим! Получихме запитването. Ще се свържем с вас скоро.
-          </p>
-
-          <div class="fine">
-            След изпращане ще получиш потвърждение, а ние ще ти върнем обаждане.
-          </div>
-        </form>
-      </div>
-
-      <div style="margin-top:10px;color:var(--muted);font-weight:900">
-        Имейл за контакт: <a href="mailto:jvc70@abv.bg"><b>jvc70@abv.bg</b></a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footGrid">
-      <div><b>SILENTHAUS</b><br/>PVC дограма без компромиси</div>
-      <div>
-        Тел: <a href="tel:+359888775141">+359 888 775 141</a><br/>
-        Имейл: <a href="mailto:jvc70@abv.bg">jvc70@abv.bg</a>
-      </div>
-    </div>
-    <div style="margin-top:10px;font-size:12px">© <span id="y"></span> SILENTHAUS</div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // AJAX submit to Formspree (stays on page, shows success message)
-  const form = document.getElementById('leadForm');
-  const msg = document.getElementById('formMsg');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    msg.style.display = 'none';
-
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (res.ok) {
-        form.reset();
-        msg.style.display = 'block';
-      } else {
-        alert('Има проблем с изпращането. Моля опитайте отново или се обадете.');
-      }
-    } catch (err) {
-      alert('Има проблем с интернет връзката. Моля опитайте отново или се обадете.');
-    }
-  });
-</script>
-</body>
-</html>
