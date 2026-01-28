@@ -1,33 +1,40 @@
 <!doctype html>
 <html lang="bg">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Благодарим | SILENTHAUS</title>
+  <meta name="description" content="Благодарим! Получихме вашето запитване за безплатно измерване.">
   <style>
-    body{
-      margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;
-      background:#f5f7fa;display:flex;align-items:center;justify-content:center;
-      min-height:100vh;text-align:center;padding:20px;
-    }
-    .box{
-      background:#fff;border-radius:20px;padding:30px;
-      box-shadow:0 20px 40px rgba(0,0,0,.08);max-width:480px;
-    }
-    h1{margin-top:0}
-    a{display:inline-block;margin-top:16px;font-weight:900;color:#2563eb}
+    :root{--bg:#F5F7FA;--card:#fff;--text:#0F172A;--muted:#475569;--line:#E5E7EB;--shadow:0 14px 40px rgba(15,23,42,.08);--blue:#2563EB;--radius:18px;}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;}
+    .card{max-width:560px;width:100%;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;}
+    .badge{display:inline-flex;align-items:center;gap:10px;background:rgba(37,99,235,.10);border:1px solid rgba(37,99,235,.18);color:#1D4ED8;font-weight:900;padding:8px 12px;border-radius:999px;}
+    h1{margin:14px 0 8px;font-size:32px;letter-spacing:-.4px}
+    p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;font-weight:900;text-decoration:none}
+    .btnPrimary{border:0;background:linear-gradient(135deg,#2563EB,#3B82F6);color:#fff}
+    .small{margin-top:12px;font-size:12px;color:var(--muted);font-weight:900}
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Благодарим Ви!</h1>
+  <div class="card">
+    <span class="badge">✅ Запитването е изпратено</span>
+    <h1>Благодарим!</h1>
     <p>
-      Получихме запитването ви за безплатно измерване.<br>
+      Получихме запитването ви за <b>безплатно измерване</b>.<br/>
       Ще се свържем с вас възможно най-скоро.
     </p>
-    <p><b>SILENTHAUS</b><br>PVC дограма без компромиси</p>
-    <a href="index.html">← Обратно към сайта</a>
+
+    <div class="row">
+      <a class="btn btnPrimary" href="tel:+359888775141">Обади се: +359 888 775 141</a>
+      <a class="btn" href="./">Назад към сайта</a>
+    </div>
+
+    <div class="small">
+      SILENTHAUS • PVC дограма без компромиси • София и София област
+    </div>
   </div>
 </body>
 </html>
-
