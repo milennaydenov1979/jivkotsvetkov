@@ -19,6 +19,7 @@
       --radius:18px;
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
@@ -27,6 +28,7 @@
     }
     a{color:inherit}
     .container{max-width:1120px;margin:0 auto;padding:0 18px}
+
     header{
       position:sticky;top:0;z-index:10;
       background:rgba(245,247,250,.92);
@@ -34,12 +36,12 @@
       border-bottom:1px solid var(--line);
     }
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;min-width:220px}
     .mark{
       width:38px;height:38px;border-radius:14px;
       background: radial-gradient(circle at 30% 30%, #60A5FA, #2563EB);
       box-shadow: 0 12px 26px rgba(37,99,235,.18);
-      position:relative;
+      position:relative;flex:0 0 auto;
     }
     .mark:after{
       content:"";
@@ -51,7 +53,7 @@
     .brandTitle{font-weight:900;letter-spacing:.2px;line-height:1}
     .brandSub{font-size:12px;color:var(--muted);font-weight:800;margin-top:3px}
 
-    nav{display:flex;gap:14px;flex-wrap:wrap}
+    nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
     nav a{font-size:14px;color:var(--muted);font-weight:800;text-decoration:none}
     nav a:hover{text-decoration:underline}
 
@@ -62,6 +64,7 @@
       font-weight:900;font-size:14px;text-decoration:none;
       background:var(--card);
       box-shadow: 0 8px 24px rgba(15,23,42,.06);
+      cursor:pointer;
     }
     .btnPrimary{
       border:0;
@@ -79,11 +82,11 @@
       background:#fff;
       color:var(--muted);
       font-weight:900;font-size:13px;
+      margin-right:8px;margin-bottom:8px;
     }
 
-    .hero{padding:26px 0 20px}
+    .hero{padding:22px 0 18px}
     .grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:16px;align-items:stretch}
-    @media (max-width: 920px){.grid{grid-template-columns:1fr}.btnRow{justify-content:flex-start}}
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -92,12 +95,10 @@
     }
     .heroLeft{padding:22px}
     h1{margin:10px 0 10px;font-size:42px;line-height:1.06;letter-spacing:-.8px}
-    @media (max-width: 520px){h1{font-size:34px}}
     .sub{margin:0;color:var(--muted);font-size:16px;line-height:1.6;max-width:70ch}
 
     .heroCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-    @media (max-width: 520px){.bullets{grid-template-columns:1fr}}
     .bullet{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff;}
     .bullet b{display:block;font-size:14px}
     .bullet span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:13px;line-height:1.45}
@@ -124,12 +125,11 @@
     .alert b{color:var(--text)}
     .alert .dot{color:var(--green);margin-right:6px}
 
-    section{padding:20px 0}
+    section{padding:18px 0}
     .sectionTitle{font-size:26px;letter-spacing:-.4px;margin:0 0 10px}
     .sectionLead{margin:0 0 14px;color:var(--muted);font-weight:800;line-height:1.6;max-width:78ch}
 
     .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    @media (max-width: 920px){.packages{grid-template-columns:1fr}}
     .pkg{padding:16px;position:relative}
     .badge{
       position:absolute;top:14px;right:14px;
@@ -142,10 +142,8 @@
     .pkg h3{margin:0 0 6px}
     .pkg p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
     .pkg ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-weight:800;line-height:1.7}
-    .pkg .hint{margin-top:10px;color:var(--muted);font-weight:1000}
 
     .process{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media (max-width: 920px){.process{grid-template-columns:1fr}}
     .step{padding:16px}
     .num{
       width:36px;height:36px;border-radius:14px;
@@ -161,8 +159,42 @@
     .warranty h3{margin:0 0 6px}
     .warranty p{margin:0;color:var(--muted);font-weight:800;line-height:1.65}
 
+    /* FORM */
+    .formWrap{padding:16px}
+    form{display:grid;gap:10px}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    label{font-size:13px;color:var(--muted);font-weight:1000}
+    input,textarea{
+      width:100%;padding:12px;border-radius:14px;border:1px solid var(--line);
+      background:#fff;color:var(--text);font-size:15px;outline:none;
+    }
+    textarea{min-height:92px;resize:vertical}
+    .fine{color:var(--muted);font-size:12px;font-weight:900;line-height:1.5}
+
     footer{border-top:1px solid var(--line);padding:18px 0 26px;color:var(--muted);font-weight:900}
     .footGrid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+    /* MOBILE OPTIMIZATION */
+    @media (max-width: 920px){
+      .topbar{flex-direction:column;align-items:stretch}
+      .brand{justify-content:flex-start}
+      nav{justify-content:flex-start}
+      .btnRow{justify-content:flex-start}
+      .grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 520px){
+      .container{padding:0 14px}
+      h1{font-size:32px}
+      .heroLeft{padding:16px}
+      .heroRight{padding:14px}
+      .bullets{grid-template-columns:1fr}
+      .row2{grid-template-columns:1fr}
+      nav{gap:10px}
+      nav a{font-size:13px}
+      .btn{width:100%}
+      .btnRow .btn{width:auto}
+      .heroCtas .btn{width:100%}
+    }
   </style>
 </head>
 
@@ -187,6 +219,7 @@
 
       <div class="btnRow">
         <a class="btn btnGhost" href="tel:+359888775141">Обади се</a>
+        <!-- ВОДИ КЪМ ФОРМАТА -->
         <a class="btn btnPrimary" href="#kontakt">Безплатно измерване</a>
       </div>
     </div>
@@ -305,15 +338,53 @@
     </div>
   </section>
 
+  <!-- ФОРМА -->
   <section id="kontakt">
     <div class="container">
-      <h2 class="sectionTitle">Контакт</h2>
+      <h2 class="sectionTitle">Безплатно измерване</h2>
       <p class="sectionLead">
-        Телефон: <a href="tel:+359888775141"><b>+359 888 775 141</b></a> •
-        Имейл: <a href="mailto:jvc70@abv.bg"><b>jvc70@abv.bg</b></a>
+        Остави контакт и ще ти върнем обаждане за час.
+        Ако бързаш — звънни директно: <a href="tel:+359888775141"><b>+359 888 775 141</b></a>
       </p>
-      <div class="card" style="padding:16px">
-        <b>Най-бързо:</b> натисни “Обади се” и уговори час за безплатно измерване.
+
+      <div class="card formWrap">
+        <form id="leadForm">
+          <div class="row2">
+            <div>
+              <label for="name">Име и фамилия</label>
+              <input id="name" name="name" placeholder="Напр. Иван Петров" required />
+            </div>
+            <div>
+              <label for="phone">Телефон</label>
+              <input id="phone" name="phone" placeholder="Напр. 0888 775 141" required />
+            </div>
+          </div>
+
+          <div class="row2">
+            <div>
+              <label for="email">Имейл</label>
+              <input id="email" name="email" type="email" placeholder="Напр. client@email.com" required />
+            </div>
+            <div>
+              <label for="area">Квартал / населено място (по желание)</label>
+              <input id="area" name="area" placeholder="Напр. Младост / Люлин / Божурище" />
+            </div>
+          </div>
+
+          <div>
+            <label for="note">Бележка (по желание)</label>
+            <textarea id="note" name="note" placeholder="Шум, конденз, срокове, брой прозорци..."></textarea>
+          </div>
+
+          <div class="heroCtas">
+            <a class="btn" href="tel:+359888775141">Обади се</a>
+            <button class="btn btnPrimary" type="submit">Изпрати</button>
+          </div>
+
+          <div class="fine">
+            Натискайки „Изпрати“, ще се отвори имейл към <b>jvc70@abv.bg</b> с попълнените данни.
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -332,6 +403,43 @@
   </div>
 </footer>
 
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+
+  // Works on GitHub Pages: opens a pre-filled email to your address.
+  const FORM_TO = "jvc70@abv.bg";
+
+  document.getElementById("leadForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const area = document.getElementById("area").value.trim();
+    const note = document.getElementById("note").value.trim();
+
+    if(!name || !phone || !email){
+      alert("Моля, попълни име, телефон и имейл.");
+      return;
+    }
+
+    const subject = "Запитване за безплатно измерване – SILENTHAUS";
+    const body =
+`Здравейте,
+
+Искам безплатно измерване за PVC дограма.
+
+Име: ${name}
+Телефон: ${phone}
+Имейл: ${email}
+Квартал/населено място: ${area || "-"}
+Бележка: ${note || "-"}
+
+Изпратено от сайта SILENTHAUS.`;
+
+    const mailto = `mailto:${encodeURIComponent(FORM_TO)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  });
+</script>
 </body>
 </html>
