@@ -8,158 +8,47 @@
 
   <style>
     :root{
-      --bg:#F5F7FA;
-      --card:#FFFFFF;
-      --text:#0F172A;
-      --muted:#475569;
-      --line:#E5E7EB;
-      --shadow:0 14px 40px rgba(15,23,42,.08);
-      --blue:#2563EB;
-      --green:#16A34A;
-      --radius:18px;
+      --bg:#F5F7FA;--card:#FFFFFF;--text:#0F172A;--muted:#475569;
+      --line:#E5E7EB;--shadow:0 14px 40px rgba(15,23,42,.08);
+      --blue:#2563EB;--green:#16A34A;--radius:18px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
-    a{color:inherit}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+    a{color:inherit;text-decoration:none}
     .container{max-width:1120px;margin:0 auto;padding:0 18px}
 
-    header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(245,247,250,.92);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
-    }
-    .topbar{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px;padding:12px 0;
-    }
-    .brand{display:flex;align-items:center;gap:10px;min-width:220px}
-    .mark{
-      width:38px;height:38px;border-radius:14px;
-      background: radial-gradient(circle at 30% 30%, #60A5FA, #2563EB);
-      box-shadow: 0 12px 26px rgba(37,99,235,.18);
-      position:relative;flex:0 0 auto;
-    }
-    .mark:after{
-      content:"";
-      position:absolute;right:-6px;top:10px;
-      width:16px;height:16px;border-radius:8px;
-      background: radial-gradient(circle at 30% 30%, #86EFAC, #16A34A);
-      box-shadow: 0 10px 20px rgba(22,163,74,.16);
-    }
-    .brandTitle{font-weight:900;letter-spacing:.2px;line-height:1}
-    .brandSub{font-size:12px;color:var(--muted);font-weight:800;margin-top:3px}
+    header{position:sticky;top:0;background:#f5f7fae6;border-bottom:1px solid var(--line)}
+    .topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:38px;height:38px;border-radius:14px;background:linear-gradient(135deg,#60a5fa,#2563eb)}
+    nav{display:flex;gap:12px}
+    nav a{font-weight:800;color:var(--muted)}
 
-    nav{
-      display:flex;gap:14px;flex-wrap:wrap;
-      justify-content:center;
-    }
-    nav a{
-      font-size:14px;color:var(--muted);
-      font-weight:800;text-decoration:none;
-      padding:6px 8px;border-radius:10px;
-    }
-    nav a:hover{background:rgba(37,99,235,.06);text-decoration:none}
+    .btn{padding:10px 14px;border-radius:14px;font-weight:900;border:1px solid var(--line);background:#fff}
+    .btnPrimary{background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;border:none}
 
-    .btnRow{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 14px;border-radius:14px;border:1px solid var(--line);
-      font-weight:900;font-size:14px;text-decoration:none;
-      background:var(--card);
-      box-shadow: 0 8px 24px rgba(15,23,42,.06);
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .btnPrimary{
-      border:0;
-      background: linear-gradient(135deg, #2563EB, #3B82F6);
-      color:#fff;
-      box-shadow: 0 14px 28px rgba(37,99,235,.22);
-    }
-    .btnPrimary:hover{filter:brightness(1.03)}
-    .btnGhost{background:transparent;box-shadow:none}
+    .hero{padding:30px 0}
+    h1{font-size:40px;line-height:1.1}
+    .card{background:#fff;border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
 
-    .pill{
-      display:inline-flex;gap:8px;align-items:center;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--muted);
-      font-weight:900;font-size:13px;
-      margin-right:8px;margin-bottom:8px;
-    }
-
-    .hero{padding:22px 0 18px}
-    .grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:16px;align-items:stretch}
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-    .heroLeft{padding:22px}
-    h1{margin:10px 0 10px;font-size:42px;line-height:1.06;letter-spacing:-.8px}
-    .sub{margin:0;color:var(--muted);font-size:16px;line-height:1.6;max-width:70ch}
-
-    .heroCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-    .bullet{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff;}
-    .bullet b{display:block;font-size:14px}
-    .bullet span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:13px;line-height:1.45}
-
-    .heroRight{padding:16px;display:flex;flex-direction:column;gap:12px}
-    .imgBox{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;min-height:220px}
-    .imgBox img{width:100%;height:100%;object-fit:cover;display:block}
-
-    section{padding:18px 0}
-    .sectionTitle{font-size:26px;letter-spacing:-.4px;margin:0 0 10px}
-    .sectionLead{margin:0 0 14px;color:var(--muted);font-weight:800;line-height:1.6;max-width:78ch}
-
-    /* FORM */
-    .formWrap{padding:16px}
+    .formWrap{padding:20px}
     form{display:grid;gap:10px}
     .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    label{font-size:13px;color:var(--muted);font-weight:1000}
-    input,textarea{
-      width:100%;padding:12px;border-radius:14px;border:1px solid var(--line);
-      background:#fff;color:var(--text);font-size:15px;outline:none;
-    }
-    textarea{min-height:92px;resize:vertical}
-    .fine{color:var(--muted);font-size:12px;font-weight:900;line-height:1.5}
+    input,textarea{padding:12px;border-radius:14px;border:1px solid var(--line);font-size:15px}
+    textarea{min-height:90px}
 
-    /* MOBILE OPTIMIZATION */
-    @media (max-width: 920px){
-      .topbar{flex-direction:column;align-items:stretch}
-      .brand{justify-content:flex-start}
-      .btnRow{justify-content:flex-start}
+    footer{padding:20px;border-top:1px solid var(--line);margin-top:30px}
+
+    /* MOBILE */
+    @media(max-width:520px){
+      .topbar{flex-direction:column;align-items:flex-start}
+      nav{flex-direction:column;width:100%}
+      nav a{padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff}
       .grid{grid-template-columns:1fr}
-    }
-
-    /* MOBILE MENU VERTICAL */
-    @media (max-width: 520px){
-      .container{padding:0 14px}
-      nav{
-        flex-direction:column;
-        align-items:stretch;
-        gap:8px;
-        padding-top:4px;
-      }
-      nav a{
-        display:block;
-        width:100%;
-        padding:12px;
-        border:1px solid var(--line);
-        border-radius:14px;
-        background:#fff;
-      }
-      .heroCtas .btn{width:100%}
+      h1{font-size:32px}
+      .row2{grid-template-columns:1fr}
+      .btn{width:100%}
     }
   </style>
 </head>
@@ -167,45 +56,63 @@
 <body>
 
 <header>
-  <div class="container">
-    <div class="topbar">
-      <div class="brand">
-        <div class="mark"></div>
-        <div>
-          <div class="brandTitle">SILENTHAUS</div>
-          <div class="brandSub">PVC дограма без компромиси • София</div>
-        </div>
-      </div>
-
-      <nav>
-        <a href="#paketi">Пакети</a>
-        <a href="#proces">Процес</a>
-        <a href="#garancia">Гаранция</a>
-        <a href="#kontakt">Контакт</a>
-      </nav>
-
-      <div class="btnRow">
-        <a class="btn btnGhost" href="tel:+359888775141">Обади се</a>
-        <a class="btn btnPrimary" href="#kontakt">Безплатно измерване</a>
+  <div class="container topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <b>SILENTHAUS</b><br>
+        <small>PVC дограма без компромиси</small>
       </div>
     </div>
+
+    <nav>
+      <a href="#kontakt">Контакт</a>
+      <a href="tel:+359888775141">Обади се</a>
+    </nav>
   </div>
 </header>
 
-<main>
+<main class="container hero">
+  <div class="grid">
+    <div class="card">
+      <h1>PVC дограма без компромиси</h1>
+      <p>
+        За хора, които искат <b>тишина</b>, <b>топлина</b> и <b>сигурен монтаж</b>.<br>
+        София и София област • Оферта до 24 часа • Писмена гаранция
+      </p>
+      <a href="#kontakt" class="btn btnPrimary">Вземи безплатно измерване</a>
+    </div>
 
-  <!-- Hero + Intro -->
-  <div class="container hero">
-    <div class="grid">
-      <div class="card heroLeft">
-        <span class="pill">✅ София и София област</span>
-        <span class="pill">✅ Оферта до 24 часа</span>
-        <span class="pill">✅ Писмена гаранция</span>
+    <div class="card formWrap" id="kontakt">
+      <h3>Безплатно измерване</h3>
 
-        <h1>PVC дограма без компромиси</h1>
-        <p class="sub">За хора, които искат <b>тишина</b>, <b>топлина</b> и <b>сигурен монтаж</b>. Работим професионално, без бързане и без „на око“.</p>
+      <!-- FORM -->
+      <form action="https://formspree.io/f/mvzrorjo"
+            method="POST">
+        <input type="hidden" name="_redirect" value="thank-you.html">
+        <input type="hidden" name="_subject" value="Ново запитване – SILENTHAUS">
 
-        <div class="heroCtas">
-          <a class="btn btnPrimary" href="#kontakt">Вземи безплатно измерване</a>
-          <a class="btn" href="tel:+359888775141">Обади се сега</a>
+        <div class="row2">
+          <input name="name" placeholder="Име и фамилия" required>
+          <input name="phone" placeholder="Телефон" required>
         </div>
+
+        <input name="email" type="email" placeholder="Имейл" required>
+        <textarea name="note" placeholder="Бележка (по желание)"></textarea>
+
+        <button class="btn btnPrimary" type="submit">Изпрати</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <b>SILENTHAUS</b><br>
+    Тел: <a href="tel:+359888775141">+359 888 775 141</a><br>
+    Имейл: <a href="mailto:jvc70@abv.bg">jvc70@abv.bg</a>
+  </div>
+</footer>
+
+</body>
+</html>
