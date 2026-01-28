@@ -31,12 +31,16 @@
 
     /* HEADER */
     header{
-      position:sticky;top:0;z-index:10;
+      position:sticky;top:0;z-index:1000;
       background:rgba(245,247,250,.92);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;padding:12px 0;
+    }
+
     .brand{display:flex;align-items:center;gap:10px;min-width:220px}
     .mark{
       width:38px;height:38px;border-radius:14px;
@@ -79,6 +83,41 @@
     }
     .btnPrimary:hover{filter:brightness(1.03)}
     .btnGhost{background:transparent;box-shadow:none}
+
+    /* MOBILE MENU (compact + dropdown) */
+    .mobileToggle{display:none}
+    .mobileMenu{
+      display:none;
+      padding:10px 0 14px;
+      border-top:1px solid var(--line);
+    }
+    .mobileMenuInner{
+      display:grid;
+      gap:10px;
+    }
+    .mobileLinks{
+      display:grid;
+      gap:10px;
+    }
+    .mobileLinks a{
+      display:block;
+      width:100%;
+      padding:12px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      font-size:14px;
+      font-weight:900;
+      color:var(--muted);
+      text-decoration:none;
+    }
+    .mobileCtas{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    .mobileCtas .btn{width:100%}
+    .is-open .mobileMenu{display:block}
 
     /* HERO */
     .pill{
@@ -181,7 +220,7 @@
     footer{border-top:1px solid var(--line);padding:18px 0 26px;color:var(--muted);font-weight:900}
     .footGrid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-    /* MOBILE + MENU VERTICAL */
+    /* RESPONSIVE */
     @media (max-width: 920px){
       .topbar{flex-direction:column;align-items:stretch}
       .brand{justify-content:flex-start}
@@ -191,6 +230,7 @@
       .process{grid-template-columns:1fr}
     }
 
+    /* IMPORTANT: compact header on mobile */
     @media (max-width: 520px){
       .container{padding:0 14px}
       h1{font-size:32px}
@@ -199,250 +239,26 @@
       .bullets{grid-template-columns:1fr}
       .row2{grid-template-columns:1fr}
 
-      nav{
-        flex-direction:column;
-        align-items:stretch;
-        gap:8px;
-        padding-top:4px;
+      /* Hide desktop nav & button row, show one Menu button */
+      nav{display:none}
+      .btnRow{display:none}
+
+      .topbar{
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+        padding:10px 0;
       }
-      nav a{
-        display:block;width:100%;
-        padding:12px 12px;
-        border:1px solid var(--line);
-        border-radius:14px;
-        background:#fff;
-        font-size:14px;
-      }
+      .brand{min-width:auto}
+      .brandSub{display:none} /* keeps header short */
+      .mobileToggle{display:inline-flex}
       .heroCtas .btn{width:100%}
     }
   </style>
 </head>
 
 <body>
-<header>
+<header id="siteHeader">
   <div class="container">
     <div class="topbar">
-      <div class="brand">
-        <div class="mark"></div>
-        <div>
-          <div class="brandTitle">SILENTHAUS</div>
-          <div class="brandSub">PVC дограма без компромиси • София</div>
-        </div>
-      </div>
-
-      <nav>
-        <a href="#paketi">Пакети</a>
-        <a href="#proces">Процес</a>
-        <a href="#garancia">Гаранция</a>
-        <a href="#kontakt">Контакт</a>
-      </nav>
-
-      <div class="btnRow">
-        <a class="btn btnGhost" href="tel:+359888775141">Обади се</a>
-        <a class="btn btnPrimary" href="#kontakt">Безплатно измерване</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main>
-  <div class="container hero">
-    <div class="grid">
-      <div class="card heroLeft">
-        <span class="pill">✅ София и София област</span>
-        <span class="pill">✅ Оферта до 24 часа</span>
-        <span class="pill">✅ Писмена гаранция</span>
-
-        <h1>PVC дограма без компромиси</h1>
-        <p class="sub">
-          За хора, които искат <b>тишина</b>, <b>топлина</b> и <b>сигурен монтаж</b>.
-          Работим професионално, без бързане и без „на око“.
-          <br><br>
-          <b>Мисия:</b> да монтираме дограма така, че да я забравиш — без течение, без шум и без ядове.
-        </p>
-
-        <div class="heroCtas">
-          <a class="btn btnPrimary" href="#kontakt">Вземи безплатно измерване</a>
-          <a class="btn" href="tel:+359888775141">Обади се сега</a>
-        </div>
-
-        <div class="bullets">
-          <div class="bullet"><b>Оферта до 24 ч.</b><span>След реално измерване</span></div>
-          <div class="bullet"><b>Чист монтаж</b><span>Демонтаж, монтаж, реглаж</span></div>
-          <div class="bullet"><b>Комфорт</b><span>Решения за шум и студ</span></div>
-          <div class="bullet"><b>Гаранция</b><span>Писмена и реална</span></div>
-        </div>
-      </div>
-
-      <aside class="card heroRight">
-        <div class="imgBox">
-          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Модерен апартамент с PVC дограма">
-        </div>
-
-        <p class="sideTitle">За кого е услугата</p>
-        <div class="sideList">
-          <div class="sideItem"><b>Ремонт / реновация</b><span>Когато искаш да приключиш качествено</span></div>
-          <div class="sideItem"><b>Нов апартамент</b><span>Подмяна на стара дограма с гаранция</span></div>
-          <div class="sideItem"><b>Шумни булеварди</b><span>По-добра шумоизолация (COMFORT/PREMIUM)</span></div>
-          <div class="sideItem"><b>Студ / конденз</b><span>Оптимизация на стъклопакет и монтаж</span></div>
-        </div>
-
-        <div class="alert">
-          <span class="dot">●</span><b>Работим качествено.</b><br/>
-          Ако търсиш най-евтиното — не сме правилният избор.
-        </div>
-      </aside>
-    </div>
-  </div>
-
-  <section id="paketi">
-    <div class="container">
-      <h2 class="sectionTitle">Пакети</h2>
-      <p class="sectionLead">Избираш нивото на комфорт — качеството остава. След измерване даваме точна оферта според отвори, етажност и изисквания.</p>
-
-      <div class="packages">
-        <div class="card pkg">
-          <h3>STANDARD</h3>
-          <p>Солидно решение за нормални условия.</p>
-          <ul>
-            <li>Двоен стъклопакет</li>
-            <li>Качествен PVC профил</li>
-            <li>Стандартен обков</li>
-            <li>Професионален монтаж и реглаж</li>
-          </ul>
-        </div>
-
-        <div class="card pkg">
-          <div class="badge">Най-избиран</div>
-          <h3>COMFORT</h3>
-          <p>По-добра шумо и топлоизолация.</p>
-          <ul>
-            <li>Подобрен стъклопакет</li>
-            <li>По-висок клас обков</li>
-            <li>По-добри уплътнения</li>
-            <li>По-добър комфорт при градски шум</li>
-          </ul>
-        </div>
-
-        <div class="card pkg">
-          <h3>PREMIUM</h3>
-          <p>Максимален комфорт и спокойствие.</p>
-          <ul>
-            <li>Троен стъклопакет (при нужда)</li>
-            <li>Усилени решения</li>
-            <li>Фокус върху шумо/студ/конденз</li>
-            <li>Опция: удължена гаранция</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="proces">
-    <div class="container">
-      <h2 class="sectionTitle">Процес</h2>
-      <p class="sectionLead">Ясен процес, без хаос. Всяка стъпка е планирана, за да няма изненади.</p>
-
-      <div class="process">
-        <div class="card step"><div class="num">1</div><h3>Измерване</h3><p>Безплатно, точно и с консултация за стъклопакет/пакет.</p></div>
-        <div class="card step"><div class="num">2</div><h3>Оферта</h3><p>До 24 часа — ясни параметри, срок и гаранция.</p></div>
-        <div class="card step"><div class="num">3</div><h3>Производство</h3><p>По размер. Проверка на профили, стъклопакет и обков.</p></div>
-        <div class="card step"><div class="num">4</div><h3>Монтаж + реглаж</h3><p>Чист монтаж, реглаж и предаване с протокол.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="garancia">
-    <div class="container">
-      <h2 class="sectionTitle">Гаранция</h2>
-      <p class="sectionLead">Гаранцията не е текст на хартия — това е нашият ангажимент след монтажа.</p>
-
-      <div class="card warranty">
-        <h3>Силен ангажимент към клиента</h3>
-        <p>
-          Получаваш <b>писмена гаранция</b> и ясни условия. Ако се появи проблем — реагираме и коригираме.
-          Целта ни е: <b>без течение, без шум и без ядове</b>.
-          <br><br>
-          <b>Важно:</b> Правилният монтаж е критичен. Затова не правим „най-евтино“ — правим <b>както трябва</b>.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontakt">
-    <div class="container">
-      <h2 class="sectionTitle">Безплатно измерване</h2>
-      <p class="sectionLead">
-        Остави контакт и ще ти върнем обаждане за час. Ако бързаш — звънни директно:
-        <a href="tel:+359888775141"><b>+359 888 775 141</b></a>
-      </p>
-
-      <div class="card formWrap">
-        <form action="https://formspree.io/f/mvzrorjo" method="POST">
-          <!-- Redirect to thank-you page -->
-          <input type="hidden" name="_redirect" value="thank-you.html">
-          <input type="hidden" name="_subject" value="Ново запитване: Безплатно измерване – SILENTHAUS">
-
-          <div class="row2">
-            <div>
-              <label for="name">Име и фамилия</label>
-              <input id="name" name="name" placeholder="Напр. Иван Петров" required />
-            </div>
-            <div>
-              <label for="phone">Телефон</label>
-              <input id="phone" name="phone" placeholder="Напр. 0888 775 141" required />
-            </div>
-          </div>
-
-          <div class="row2">
-            <div>
-              <label for="email">Имейл</label>
-              <input id="email" name="email" type="email" placeholder="Напр. client@email.com" required />
-            </div>
-            <div>
-              <label for="area">Квартал / населено място (по желание)</label>
-              <input id="area" name="area" placeholder="Напр. Младост / Люлин / Божурище" />
-            </div>
-          </div>
-
-          <div>
-            <label for="note">Бележка (по желание)</label>
-            <textarea id="note" name="note" placeholder="Шум, конденз, срокове, брой прозорци..."></textarea>
-          </div>
-
-          <div class="heroCtas">
-            <a class="btn" href="tel:+359888775141">Обади се</a>
-            <button class="btn btnPrimary" type="submit">Изпрати</button>
-          </div>
-
-          <div class="fine">
-            След изпращане ще те прехвърлим към благодарствена страница.
-          </div>
-        </form>
-      </div>
-
-      <div style="margin-top:10px;color:var(--muted);font-weight:900">
-        Имейл за контакт: <a href="mailto:jvc70@abv.bg"><b>jvc70@abv.bg</b></a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footGrid">
-      <div><b>SILENTHAUS</b><br/>PVC дограма без компромиси</div>
-      <div>
-        Тел: <a href="tel:+359888775141">+359 888 775 141</a><br/>
-        Имейл: <a href="mailto:jvc70@abv.bg">jvc70@abv.bg</a>
-      </div>
-    </div>
-    <div style="margin-top:10px;font-size:12px">© <span id="y"></span> SILENTHAUS</div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+      <di
