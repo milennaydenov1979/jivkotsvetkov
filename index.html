@@ -1,118 +1,448 @@
 <!doctype html>
 <html lang="bg">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="SILENTHAUS – PVC дограма без компромиси. Подмяна на дограма в София и област. Професионален монтаж, оферта до 24 часа, писмена гаранция.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="SILENTHAUS – PVC дограма без компромиси. Подмяна на дограма в София и област. Професионален монтаж, оферта до 24 часа, писмена гаранция." />
   <title>SILENTHAUS | PVC дограма без компромиси – София</title>
 
   <style>
     :root{
-      --bg:#F5F7FA;--card:#FFFFFF;--text:#0F172A;--muted:#475569;
-      --line:#E5E7EB;--shadow:0 14px 40px rgba(15,23,42,.08);
-      --blue:#2563EB;--green:#16A34A;--radius:18px;
+      --bg:#F5F7FA;
+      --card:#FFFFFF;
+      --text:#0F172A;
+      --muted:#475569;
+      --line:#E5E7EB;
+      --shadow:0 14px 40px rgba(15,23,42,.08);
+      --blue:#2563EB;
+      --green:#16A34A;
+      --radius:18px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
     .container{max-width:1120px;margin:0 auto;padding:0 18px}
 
-    header{position:sticky;top:0;background:#f5f7fae6;border-bottom:1px solid var(--line)}
-    .topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;gap:10px;align-items:center}
-    .logo{width:38px;height:38px;border-radius:14px;background:linear-gradient(135deg,#60a5fa,#2563eb)}
-    nav{display:flex;gap:12px}
-    nav a{font-weight:800;color:var(--muted)}
+    /* HEADER */
+    header{
+      position:sticky;top:0;z-index:10;
+      background:rgba(245,247,250,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px;min-width:220px}
+    .mark{
+      width:38px;height:38px;border-radius:14px;
+      background: radial-gradient(circle at 30% 30%, #60A5FA, #2563EB);
+      box-shadow: 0 12px 26px rgba(37,99,235,.18);
+      position:relative;flex:0 0 auto;
+    }
+    .mark:after{
+      content:"";
+      position:absolute;right:-6px;top:10px;
+      width:16px;height:16px;border-radius:8px;
+      background: radial-gradient(circle at 30% 30%, #86EFAC, #16A34A);
+      box-shadow: 0 10px 20px rgba(22,163,74,.16);
+    }
+    .brandTitle{font-weight:900;letter-spacing:.2px;line-height:1}
+    .brandSub{font-size:12px;color:var(--muted);font-weight:800;margin-top:3px}
 
-    .btn{padding:10px 14px;border-radius:14px;font-weight:900;border:1px solid var(--line);background:#fff}
-    .btnPrimary{background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;border:none}
+    nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    nav a{
+      font-size:14px;color:var(--muted);font-weight:800;text-decoration:none;
+      padding:6px 8px;border-radius:10px;
+    }
+    nav a:hover{background:rgba(37,99,235,.06);text-decoration:none}
 
-    .hero{padding:30px 0}
-    h1{font-size:40px;line-height:1.1}
-    .card{background:#fff;border-radius:18px;padding:20px;box-shadow:var(--shadow)}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    .btnRow{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:14px;border:1px solid var(--line);
+      font-weight:900;font-size:14px;text-decoration:none;
+      background:var(--card);
+      box-shadow: 0 8px 24px rgba(15,23,42,.06);
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btnPrimary{
+      border:0;
+      background: linear-gradient(135deg, #2563EB, #3B82F6);
+      color:#fff;
+      box-shadow: 0 14px 28px rgba(37,99,235,.22);
+    }
+    .btnPrimary:hover{filter:brightness(1.03)}
+    .btnGhost{background:transparent;box-shadow:none}
 
-    .formWrap{padding:20px}
+    /* HERO */
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--muted);
+      font-weight:900;font-size:13px;
+      margin-right:8px;margin-bottom:8px;
+    }
+    .hero{padding:22px 0 18px}
+    .grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:16px;align-items:stretch}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .heroLeft{padding:22px}
+    h1{margin:10px 0 10px;font-size:42px;line-height:1.06;letter-spacing:-.8px}
+    .sub{margin:0;color:var(--muted);font-size:16px;line-height:1.6;max-width:72ch}
+
+    .heroCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+    .bullet{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff;}
+    .bullet b{display:block;font-size:14px}
+    .bullet span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:13px;line-height:1.45}
+
+    .heroRight{padding:16px;display:flex;flex-direction:column;gap:12px}
+    .imgBox{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;min-height:220px}
+    .imgBox img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .sideTitle{font-weight:1000;font-size:16px;margin:0}
+    .sideList{display:grid;gap:10px}
+    .sideItem{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff}
+    .sideItem b{display:block}
+    .sideItem span{color:var(--muted);font-weight:800}
+
+    .alert{
+      border:1px solid rgba(22,163,74,.25);
+      background: rgba(22,163,74,.06);
+      border-radius:16px;
+      padding:12px;
+      color: var(--muted);
+      font-weight:900;
+      line-height:1.45;
+    }
+    .alert b{color:var(--text)}
+    .alert .dot{color:var(--green);margin-right:6px}
+
+    /* SECTIONS */
+    section{padding:18px 0}
+    .sectionTitle{font-size:26px;letter-spacing:-.4px;margin:0 0 10px}
+    .sectionLead{margin:0 0 14px;color:var(--muted);font-weight:800;line-height:1.6;max-width:78ch}
+
+    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .pkg{padding:16px;position:relative}
+    .badge{
+      position:absolute;top:14px;right:14px;
+      font-size:12px;font-weight:1000;
+      padding:6px 10px;border-radius:999px;
+      background: rgba(37,99,235,.10);
+      border:1px solid rgba(37,99,235,.20);
+      color:#1D4ED8;
+      max-width: 130px;text-align:center;
+    }
+    .pkg h3{margin:0 0 6px}
+    .pkg p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
+    .pkg ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-weight:800;line-height:1.7}
+
+    .process{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .step{padding:16px}
+    .num{
+      width:36px;height:36px;border-radius:14px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background: rgba(37,99,235,.10);
+      border:1px solid rgba(37,99,235,.20);
+      color:#1D4ED8;font-weight:1000;margin-bottom:10px;
+    }
+    .step h3{margin:0 0 6px}
+    .step p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
+
+    .warranty{padding:16px;border-left:4px solid var(--green)}
+    .warranty h3{margin:0 0 6px}
+    .warranty p{margin:0;color:var(--muted);font-weight:800;line-height:1.65}
+
+    /* FORM */
+    .formWrap{padding:16px}
     form{display:grid;gap:10px}
     .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    input,textarea{padding:12px;border-radius:14px;border:1px solid var(--line);font-size:15px}
-    textarea{min-height:90px}
+    label{font-size:13px;color:var(--muted);font-weight:1000}
+    input,textarea{
+      width:100%;padding:12px;border-radius:14px;border:1px solid var(--line);
+      background:#fff;color:var(--text);font-size:15px;outline:none;
+    }
+    textarea{min-height:92px;resize:vertical}
+    .fine{color:var(--muted);font-size:12px;font-weight:900;line-height:1.5}
 
-    footer{padding:20px;border-top:1px solid var(--line);margin-top:30px}
+    footer{border-top:1px solid var(--line);padding:18px 0 26px;color:var(--muted);font-weight:900}
+    .footGrid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-    /* MOBILE */
-    @media(max-width:520px){
-      .topbar{flex-direction:column;align-items:flex-start}
-      nav{flex-direction:column;width:100%}
-      nav a{padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff}
+    /* MOBILE + MENU VERTICAL */
+    @media (max-width: 920px){
+      .topbar{flex-direction:column;align-items:stretch}
+      .brand{justify-content:flex-start}
+      .btnRow{justify-content:flex-start}
       .grid{grid-template-columns:1fr}
+      .packages{grid-template-columns:1fr}
+      .process{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 520px){
+      .container{padding:0 14px}
       h1{font-size:32px}
+      .heroLeft{padding:16px}
+      .heroRight{padding:14px}
+      .bullets{grid-template-columns:1fr}
       .row2{grid-template-columns:1fr}
-      .btn{width:100%}
+
+      nav{
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        padding-top:4px;
+      }
+      nav a{
+        display:block;width:100%;
+        padding:12px 12px;
+        border:1px solid var(--line);
+        border-radius:14px;
+        background:#fff;
+        font-size:14px;
+      }
+      .heroCtas .btn{width:100%}
     }
   </style>
 </head>
 
 <body>
-
 <header>
-  <div class="container topbar">
-    <div class="brand">
-      <div class="logo"></div>
-      <div>
-        <b>SILENTHAUS</b><br>
-        <small>PVC дограма без компромиси</small>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <div class="mark"></div>
+        <div>
+          <div class="brandTitle">SILENTHAUS</div>
+          <div class="brandSub">PVC дограма без компромиси • София</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#paketi">Пакети</a>
+        <a href="#proces">Процес</a>
+        <a href="#garancia">Гаранция</a>
+        <a href="#kontakt">Контакт</a>
+      </nav>
+
+      <div class="btnRow">
+        <a class="btn btnGhost" href="tel:+359888775141">Обади се</a>
+        <a class="btn btnPrimary" href="#kontakt">Безплатно измерване</a>
       </div>
     </div>
-
-    <nav>
-      <a href="#kontakt">Контакт</a>
-      <a href="tel:+359888775141">Обади се</a>
-    </nav>
   </div>
 </header>
 
-<main class="container hero">
-  <div class="grid">
-    <div class="card">
-      <h1>PVC дограма без компромиси</h1>
-      <p>
-        За хора, които искат <b>тишина</b>, <b>топлина</b> и <b>сигурен монтаж</b>.<br>
-        София и София област • Оферта до 24 часа • Писмена гаранция
-      </p>
-      <a href="#kontakt" class="btn btnPrimary">Вземи безплатно измерване</a>
-    </div>
+<main>
+  <div class="container hero">
+    <div class="grid">
+      <div class="card heroLeft">
+        <span class="pill">✅ София и София област</span>
+        <span class="pill">✅ Оферта до 24 часа</span>
+        <span class="pill">✅ Писмена гаранция</span>
 
-    <div class="card formWrap" id="kontakt">
-      <h3>Безплатно измерване</h3>
+        <h1>PVC дограма без компромиси</h1>
+        <p class="sub">
+          За хора, които искат <b>тишина</b>, <b>топлина</b> и <b>сигурен монтаж</b>.
+          Работим професионално, без бързане и без „на око“.
+          <br><br>
+          <b>Мисия:</b> да монтираме дограма така, че да я забравиш — без течение, без шум и без ядове.
+        </p>
 
-      <!-- FORM -->
-      <form action="https://formspree.io/f/mvzrorjo"
-            method="POST">
-        <input type="hidden" name="_redirect" value="thank-you.html">
-        <input type="hidden" name="_subject" value="Ново запитване – SILENTHAUS">
-
-        <div class="row2">
-          <input name="name" placeholder="Име и фамилия" required>
-          <input name="phone" placeholder="Телефон" required>
+        <div class="heroCtas">
+          <a class="btn btnPrimary" href="#kontakt">Вземи безплатно измерване</a>
+          <a class="btn" href="tel:+359888775141">Обади се сега</a>
         </div>
 
-        <input name="email" type="email" placeholder="Имейл" required>
-        <textarea name="note" placeholder="Бележка (по желание)"></textarea>
+        <div class="bullets">
+          <div class="bullet"><b>Оферта до 24 ч.</b><span>След реално измерване</span></div>
+          <div class="bullet"><b>Чист монтаж</b><span>Демонтаж, монтаж, реглаж</span></div>
+          <div class="bullet"><b>Комфорт</b><span>Решения за шум и студ</span></div>
+          <div class="bullet"><b>Гаранция</b><span>Писмена и реална</span></div>
+        </div>
+      </div>
 
-        <button class="btn btnPrimary" type="submit">Изпрати</button>
-      </form>
+      <aside class="card heroRight">
+        <div class="imgBox">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Модерен апартамент с PVC дограма">
+        </div>
+
+        <p class="sideTitle">За кого е услугата</p>
+        <div class="sideList">
+          <div class="sideItem"><b>Ремонт / реновация</b><span>Когато искаш да приключиш качествено</span></div>
+          <div class="sideItem"><b>Нов апартамент</b><span>Подмяна на стара дограма с гаранция</span></div>
+          <div class="sideItem"><b>Шумни булеварди</b><span>По-добра шумоизолация (COMFORT/PREMIUM)</span></div>
+          <div class="sideItem"><b>Студ / конденз</b><span>Оптимизация на стъклопакет и монтаж</span></div>
+        </div>
+
+        <div class="alert">
+          <span class="dot">●</span><b>Работим качествено.</b><br/>
+          Ако търсиш най-евтиното — не сме правилният избор.
+        </div>
+      </aside>
     </div>
   </div>
+
+  <section id="paketi">
+    <div class="container">
+      <h2 class="sectionTitle">Пакети</h2>
+      <p class="sectionLead">Избираш нивото на комфорт — качеството остава. След измерване даваме точна оферта според отвори, етажност и изисквания.</p>
+
+      <div class="packages">
+        <div class="card pkg">
+          <h3>STANDARD</h3>
+          <p>Солидно решение за нормални условия.</p>
+          <ul>
+            <li>Двоен стъклопакет</li>
+            <li>Качествен PVC профил</li>
+            <li>Стандартен обков</li>
+            <li>Професионален монтаж и реглаж</li>
+          </ul>
+        </div>
+
+        <div class="card pkg">
+          <div class="badge">Най-избиран</div>
+          <h3>COMFORT</h3>
+          <p>По-добра шумо и топлоизолация.</p>
+          <ul>
+            <li>Подобрен стъклопакет</li>
+            <li>По-висок клас обков</li>
+            <li>По-добри уплътнения</li>
+            <li>По-добър комфорт при градски шум</li>
+          </ul>
+        </div>
+
+        <div class="card pkg">
+          <h3>PREMIUM</h3>
+          <p>Максимален комфорт и спокойствие.</p>
+          <ul>
+            <li>Троен стъклопакет (при нужда)</li>
+            <li>Усилени решения</li>
+            <li>Фокус върху шумо/студ/конденз</li>
+            <li>Опция: удължена гаранция</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proces">
+    <div class="container">
+      <h2 class="sectionTitle">Процес</h2>
+      <p class="sectionLead">Ясен процес, без хаос. Всяка стъпка е планирана, за да няма изненади.</p>
+
+      <div class="process">
+        <div class="card step"><div class="num">1</div><h3>Измерване</h3><p>Безплатно, точно и с консултация за стъклопакет/пакет.</p></div>
+        <div class="card step"><div class="num">2</div><h3>Оферта</h3><p>До 24 часа — ясни параметри, срок и гаранция.</p></div>
+        <div class="card step"><div class="num">3</div><h3>Производство</h3><p>По размер. Проверка на профили, стъклопакет и обков.</p></div>
+        <div class="card step"><div class="num">4</div><h3>Монтаж + реглаж</h3><p>Чист монтаж, реглаж и предаване с протокол.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="garancia">
+    <div class="container">
+      <h2 class="sectionTitle">Гаранция</h2>
+      <p class="sectionLead">Гаранцията не е текст на хартия — това е нашият ангажимент след монтажа.</p>
+
+      <div class="card warranty">
+        <h3>Силен ангажимент към клиента</h3>
+        <p>
+          Получаваш <b>писмена гаранция</b> и ясни условия. Ако се появи проблем — реагираме и коригираме.
+          Целта ни е: <b>без течение, без шум и без ядове</b>.
+          <br><br>
+          <b>Важно:</b> Правилният монтаж е критичен. Затова не правим „най-евтино“ — правим <b>както трябва</b>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="container">
+      <h2 class="sectionTitle">Безплатно измерване</h2>
+      <p class="sectionLead">
+        Остави контакт и ще ти върнем обаждане за час. Ако бързаш — звънни директно:
+        <a href="tel:+359888775141"><b>+359 888 775 141</b></a>
+      </p>
+
+      <div class="card formWrap">
+        <form action="https://formspree.io/f/mvzrorjo" method="POST">
+          <!-- Redirect to thank-you page -->
+          <input type="hidden" name="_redirect" value="thank-you.html">
+          <input type="hidden" name="_subject" value="Ново запитване: Безплатно измерване – SILENTHAUS">
+
+          <div class="row2">
+            <div>
+              <label for="name">Име и фамилия</label>
+              <input id="name" name="name" placeholder="Напр. Иван Петров" required />
+            </div>
+            <div>
+              <label for="phone">Телефон</label>
+              <input id="phone" name="phone" placeholder="Напр. 0888 775 141" required />
+            </div>
+          </div>
+
+          <div class="row2">
+            <div>
+              <label for="email">Имейл</label>
+              <input id="email" name="email" type="email" placeholder="Напр. client@email.com" required />
+            </div>
+            <div>
+              <label for="area">Квартал / населено място (по желание)</label>
+              <input id="area" name="area" placeholder="Напр. Младост / Люлин / Божурище" />
+            </div>
+          </div>
+
+          <div>
+            <label for="note">Бележка (по желание)</label>
+            <textarea id="note" name="note" placeholder="Шум, конденз, срокове, брой прозорци..."></textarea>
+          </div>
+
+          <div class="heroCtas">
+            <a class="btn" href="tel:+359888775141">Обади се</a>
+            <button class="btn btnPrimary" type="submit">Изпрати</button>
+          </div>
+
+          <div class="fine">
+            След изпращане ще те прехвърлим към благодарствена страница.
+          </div>
+        </form>
+      </div>
+
+      <div style="margin-top:10px;color:var(--muted);font-weight:900">
+        Имейл за контакт: <a href="mailto:jvc70@abv.bg"><b>jvc70@abv.bg</b></a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="container">
-    <b>SILENTHAUS</b><br>
-    Тел: <a href="tel:+359888775141">+359 888 775 141</a><br>
-    Имейл: <a href="mailto:jvc70@abv.bg">jvc70@abv.bg</a>
+    <div class="footGrid">
+      <div><b>SILENTHAUS</b><br/>PVC дограма без компромиси</div>
+      <div>
+        Тел: <a href="tel:+359888775141">+359 888 775 141</a><br/>
+        Имейл: <a href="mailto:jvc70@abv.bg">jvc70@abv.bg</a>
+      </div>
+    </div>
+    <div style="margin-top:10px;font-size:12px">© <span id="y"></span> SILENTHAUS</div>
   </div>
 </footer>
 
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
