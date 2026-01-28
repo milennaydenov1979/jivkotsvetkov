@@ -35,7 +35,11 @@
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;padding:12px 0;
+    }
+
     .brand{display:flex;align-items:center;gap:10px;min-width:220px}
     .mark{
       width:38px;height:38px;border-radius:14px;
@@ -53,9 +57,16 @@
     .brandTitle{font-weight:900;letter-spacing:.2px;line-height:1}
     .brandSub{font-size:12px;color:var(--muted);font-weight:800;margin-top:3px}
 
-    nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-    nav a{font-size:14px;color:var(--muted);font-weight:800;text-decoration:none}
-    nav a:hover{text-decoration:underline}
+    nav{
+      display:flex;gap:14px;flex-wrap:wrap;
+      justify-content:center;
+    }
+    nav a{
+      font-size:14px;color:var(--muted);
+      font-weight:800;text-decoration:none;
+      padding:6px 8px;border-radius:10px;
+    }
+    nav a:hover{background:rgba(37,99,235,.06);text-decoration:none}
 
     .btnRow{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .btn{
@@ -65,6 +76,7 @@
       background:var(--card);
       box-shadow: 0 8px 24px rgba(15,23,42,.06);
       cursor:pointer;
+      white-space:nowrap;
     }
     .btnPrimary{
       border:0;
@@ -138,6 +150,8 @@
       background: rgba(37,99,235,.10);
       border:1px solid rgba(37,99,235,.20);
       color:#1D4ED8;
+      max-width: 120px;
+      text-align:center;
     }
     .pkg h3{margin:0 0 6px}
     .pkg p{margin:0;color:var(--muted);font-weight:800;line-height:1.6}
@@ -174,14 +188,15 @@
     footer{border-top:1px solid var(--line);padding:18px 0 26px;color:var(--muted);font-weight:900}
     .footGrid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-    /* MOBILE OPTIMIZATION */
+    /* MOBILE OPTIMIZATION + MENU VERTICAL */
     @media (max-width: 920px){
       .topbar{flex-direction:column;align-items:stretch}
       .brand{justify-content:flex-start}
-      nav{justify-content:flex-start}
       .btnRow{justify-content:flex-start}
       .grid{grid-template-columns:1fr}
     }
+
+    /* ТУК Е ВАЖНОТО: менюто става едно под друго на мобилен */
     @media (max-width: 520px){
       .container{padding:0 14px}
       h1{font-size:32px}
@@ -189,10 +204,24 @@
       .heroRight{padding:14px}
       .bullets{grid-template-columns:1fr}
       .row2{grid-template-columns:1fr}
-      nav{gap:10px}
-      nav a{font-size:13px}
-      .btn{width:100%}
-      .btnRow .btn{width:auto}
+
+      nav{
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        padding-top:4px;
+      }
+      nav a{
+        display:block;
+        width:100%;
+        padding:12px 12px;
+        border:1px solid var(--line);
+        border-radius:14px;
+        background:#fff;
+        font-size:14px;
+      }
+
+      /* CTA бутоните под hero и във формата да са на 100% ширина */
       .heroCtas .btn{width:100%}
     }
   </style>
@@ -219,7 +248,6 @@
 
       <div class="btnRow">
         <a class="btn btnGhost" href="tel:+359888775141">Обади се</a>
-        <!-- ВОДИ КЪМ ФОРМАТА -->
         <a class="btn btnPrimary" href="#kontakt">Безплатно измерване</a>
       </div>
     </div>
@@ -338,7 +366,7 @@
     </div>
   </section>
 
-  <!-- ФОРМА -->
+  <!-- FORM (Formspree) -->
   <section id="kontakt">
     <div class="container">
       <h2 class="sectionTitle">Безплатно измерване</h2>
@@ -348,7 +376,13 @@
       </p>
 
       <div class="card formWrap">
-        <form id="leadForm">
+        <form id="leadForm"
+              action="https://formspree.io/f/REPLACE_ME"
+              method="POST">
+          <input type="hidden" name="_subject" value="Ново запитване: Безплатно измерване – SILENTHAUS">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
           <div class="row2">
             <div>
               <label for="name">Име и фамилия</label>
@@ -381,10 +415,18 @@
             <button class="btn btnPrimary" type="submit">Изпрати</button>
           </div>
 
+          <p id="formMsg" style="display:none;margin:0;color:var(--green);font-weight:900">
+            Благодарим! Получихме запитването. Ще се свържем с вас скоро.
+          </p>
+
           <div class="fine">
-            Натискайки „Изпрати“, ще се отвори имейл към <b>jvc70@abv.bg</b> с попълнените данни.
+            След изпращане ще получиш потвърждение, а ние ще ти върнем обаждане.
           </div>
         </form>
+      </div>
+
+      <div style="margin-top:10px;color:var(--muted);font-weight:900">
+        Имейл за контакт: <a href="mailto:jvc70@abv.bg"><b>jvc70@abv.bg</b></a>
       </div>
     </div>
   </section>
@@ -404,41 +446,34 @@
 </footer>
 
 <script>
-  document.getElementById('y').textContent=new Date().getFullYear();
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-  // Works on GitHub Pages: opens a pre-filled email to your address.
-  const FORM_TO = "jvc70@abv.bg";
+  // AJAX submit to Formspree (stays on page, shows success message)
+  const form = document.getElementById('leadForm');
+  const msg = document.getElementById('formMsg');
 
-  document.getElementById("leadForm").addEventListener("submit", function(e){
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    msg.style.display = 'none';
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const area = document.getElementById("area").value.trim();
-    const note = document.getElementById("note").value.trim();
+    const data = new FormData(form);
 
-    if(!name || !phone || !email){
-      alert("Моля, попълни име, телефон и имейл.");
-      return;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        msg.style.display = 'block';
+      } else {
+        alert('Има проблем с изпращането. Моля опитайте отново или се обадете.');
+      }
+    } catch (err) {
+      alert('Има проблем с интернет връзката. Моля опитайте отново или се обадете.');
     }
-
-    const subject = "Запитване за безплатно измерване – SILENTHAUS";
-    const body =
-`Здравейте,
-
-Искам безплатно измерване за PVC дограма.
-
-Име: ${name}
-Телефон: ${phone}
-Имейл: ${email}
-Квартал/населено място: ${area || "-"}
-Бележка: ${note || "-"}
-
-Изпратено от сайта SILENTHAUS.`;
-
-    const mailto = `mailto:${encodeURIComponent(FORM_TO)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
   });
 </script>
 </body>
